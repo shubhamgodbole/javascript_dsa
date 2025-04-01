@@ -149,3 +149,86 @@ console.log(updatedArr); // [1, 99, 2, 3]
 let arr6 = [1, 2, 3];
 let mappedArr = arr6.flatMap((val, idx) => (idx === 1 ? [99, val] : [val]));
 console.log(mappedArr); // [1, 99, 2, 3]
+```
+
+# Merging Two Arrays in JavaScript
+
+## 1. Using Default Methods
+
+### **Method 1: Using `concat()`**
+```javascript
+const array1 = [1, 2, 3];
+const array2 = [4, 5, 6];
+const mergedArray = array1.concat(array2);
+console.log(mergedArray);  // Output: [1, 2, 3, 4, 5, 6]
+```
+
+### **Method 2: Using Spread Operator (`...`)**
+```javascript
+const mergedArray = [...array1, ...array2];
+console.log(mergedArray);  // Output: [1, 2, 3, 4, 5, 6]
+```
+
+### **Method 3: Using `push()` with Spread Operator**
+```javascript
+array1.push(...array2);
+console.log(array1);  // Output: [1, 2, 3, 4, 5, 6]
+```
+
+
+
+# Programmatically Merging Arrays
+
+### **Method 1: Using `for` Loop**
+```javascript
+let mergedArray = [];
+for (let i = 0; i < array1.length; i++) {
+  mergedArray.push(array1[i]);
+}
+for (let i = 0; i < array2.length; i++) {
+  mergedArray.push(array2[i]);
+}
+console.log(mergedArray);  // Output: [1, 2, 3, 4, 5, 6]
+```
+
+### **Method 2: Using `forEach()` Loop**
+```javascript
+let mergedArray = [];
+array1.forEach(item => mergedArray.push(item));
+array2.forEach(item => mergedArray.push(item));
+console.log(mergedArray);
+```
+
+### **Method 3: Using `while` Loop**
+```javascript
+let mergedArray = [];
+let i = 0;
+while (i < array1.length) {
+  mergedArray.push(array1[i]);
+  i++;
+}
+i = 0;
+while (i < array2.length) {
+  mergedArray.push(array2[i]);
+  i++;
+}
+console.log(mergedArray);
+```
+
+---
+
+## 3. Merging Arrays of Different Sizes
+```javascript
+const array1 = [1, 2, 3];
+const array2 = [4, 5];
+const mergedArray = [...array1, ...array2];
+console.log(mergedArray);  // Output: [1, 2, 3, 4, 5]
+```
+
+---
+
+## Summary
+- Use `concat()`, spread operator (`...`), or `push()` for quick merging.
+- Use loops (`for`, `forEach`, `while`) for manual merging.
+- Handle different-sized arrays carefully.
+
